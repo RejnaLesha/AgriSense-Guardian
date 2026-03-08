@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgriSense Guardian - Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif;}
+.logo-title{
+width:60px;
+vertical-align:middle;
+margin-right:6px;
+}
+
+body{background:url('priscilla-du-preez-6gWMviz-vSo-unsplash.jpg') no-repeat center center/cover;
+color:white;}
+
+
+.overlay{background:rgba(0,0,0,0.3);
+    min-height:100vh;}
+
+header{padding:20px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;}
+
+
+header h1{font-size:26px;
+    cursor:pointer;
+    transition:0.3s;}
+
+
+header h1:hover{color:#00c853;
+    transform:scale(1.05);}
+
+nav a{color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;}
+
+nav a:hover{color:#00c853;
+    transform:scale(1.05);}
+
+.hero{text-align:center;
+    padding:60px 20px;}
+
+.hero h2{font-size:42px;
+    margin-bottom:20px;}
+
+.hero p{font-size:18px;}
+
+.dashboard{display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    padding:40px;
+    transition:all 0.3s;}
+
+.card{background:#2e7d32;
+    margin:15px;padding:25px;
+    width:220px;
+    border-radius:12px;
+    text-align:center;
+    font-size:18px;
+    transition:0.3s;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(0,0,0,0.5);}
+
+
+.card:hover{transform:scale(1.05);
+    background:#1b5e20;
+    box-shadow:0 6px 14px rgba(0,0,0,0.7);}
+
+.alert{background:#c62828;
+    animation:shake 0.5s;}
+
+@keyframes shake{0%{transform:translateX(0);}
+25%{transform:translateX(-5px);}
+50%{transform:translateX(5px);}
+75%{transform:translateX(-5px);}
+100%{transform:translateX(0);}}
+
+.footer{text-align:center;
+    padding:20px;
+    background:rgba(0,0,0,0.7);}
+
+
+button.simulate{padding:14px 30px;
+    font-size:16px;
+    border:none;
+    border-radius:8px;
+    background:#00c853;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    margin:20px;}
+
+button.simulate:hover{background:#009624;
+transform:scale(1.05);}
+
+</style>
+</head>
+<body>
+<div class="overlay">
+<header>
+   <h1 onclick="goHome()">
+<img src="logo.png" class="logo-title"> AgriSense Guardian
+</h1>
+    <nav>
+        <a href="robot.html">Rreth Nesh</a>
+        <a href="index.html">Home</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Dashboard Inteligjent</h2>
+    <p>Temperatura • Lagështia • pH • CO2 • Sëmundjet e bimëve</p>
+</section>
+
+<section class="dashboard">
+    <div class="card" id="tempCard">🌡 Temperatura: <span id="temp">--</span> °C</div>
+    <div class="card" id="humidityCard">💧 Lagështia: <span id="humidity">--</span> %</div>
+    <div class="card" id="phCard">🧪 pH: <span id="ph">--</span></div>
+    <div class="card" id="co2Card">🌿 CO2: <span id="co2">--</span> ppm</div>
+    <div class="card" id="diseaseCard">🦠 Sëmundje: <span id="disease">--</span></div>
+</section>
+
+<section style="text-align:center;">
+    <button class="simulate" onclick="simulateData()">Simulo të Dhëna nga Roboti</button>
+</section>
+
+<div class="footer">©️ 2026 AgriSense Guardian</div>
+</div>
+
+<script>
+function goHome(){window.location.href='index.html';}
+function simulateData(){
+    let temperature=Math.floor(Math.random()*45);
+    let humidity=Math.floor(Math.random()*100);
+    let ph=(Math.random()*3+5).toFixed(1);
+    let co2=Math.floor(Math.random()*1500);
+    let disease=Math.random()>0.7;
+    document.getElementById("temp").innerText=temperature;
+    document.getElementById("humidity").innerText=humidity;
+    document.getElementById("ph").innerText=ph;
+    document.getElementById("co2").innerText=co2;
+    document.getElementById("disease").innerText=disease?"Po":"Jo";
+    resetCards();
+    if(temperature>35){alertTelegram("⚠ Temperatura shumë e lartë!");document.getElementById("tempCard").classList.add("alert");}
+    if(ph<5.5||ph>7.5){alertTelegram("⚠ pH jashtë normales!");document.getElementById("phCard").classList.add("alert");}
+    if(co2>1000){alertTelegram("⚠ Nivel i lartë CO2!");document.getElementById("co2Card").classList.add("alert");}
+    if(disease){alertTelegram("🚨 Sëmundje e zbuluar në bimë!");document.getElementById("diseaseCard").classList.add("alert");}
+}
+function resetCards(){let cards=document.querySelectorAll(".card");cards.forEach(c=>c.classList.remove("alert"));}
+function alertTelegram(message){console.log("Telegram Alert:",message);alert("Telegram Alert:\n"+message);}
+</script>
+</body>
+</html>

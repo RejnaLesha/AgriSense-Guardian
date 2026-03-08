@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgriSense Guardian</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif;}
+
+
+.logo-title{
+width: 150px;
+vertical-align:middle;
+margin-right:3px;
+}
+
+
+body,html{height:100%;scroll-behavior:smooth;}
+
+.hero-section{background:url('priscilla-du-preez-6gWMviz-vSo-unsplash.jpg') center/cover no-repeat;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+position:relative;}
+.hero-overlay{background:rgba(0,0,0,0.3);
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;}
+
+
+.hero-content{position:relative;
+    text-align:center;
+    z-index:2;}
+
+h1{font-size:70px;
+    margin-bottom:20px;
+    cursor:pointer;
+    transition:0.4s;}
+
+h1:hover{color:#00c853;
+    transform:scale(1.05);}
+
+
+p{font-size:24px;
+    margin-bottom:40px;}
+
+
+button{padding:20px 50px;
+    font-size:22px;
+    border:none;
+    border-radius:12px;
+    background:#00c853;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;}
+
+
+button:hover{background:#009624;
+    transform:scale(1.08);}
+
+nav{position:absolute;
+    top:30px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:30px;}
+
+
+nav a{color:white;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:18px;
+    transition:0.3s;}
+
+
+nav a:hover{color:#00c853;
+    transform:scale(1.05);}
+
+
+.features{display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:50px;
+    gap:25px;}
+
+
+.feature-card{background:rgba(46,125,50,0.9);
+    padding:25px;
+    border-radius:12px;
+    width:220px;
+    text-align:center;
+    color:white;
+    transition:0.3s;
+    cursor:pointer;
+    box-shadow:0 6px 14px rgba(0,0,0,0.4);}
+
+
+.feature-card:hover{transform:scale(1.05);
+background:#1b5e20;}
+</style>
+</head>
+<body>
+
+<div class="hero-section">
+<div class="hero-overlay"></div>
+<nav>
+  
+<a href="robot.html">Rreth Nesh</a>
+<a href="dashboard.html">Dashboard</a>
+</nav>
+<div class="hero-content">
+<h1><img src="logo.png" class="logo-title"> AgriSense Guardian</h1>
+<p>Monitorim Inteligjent për Fermën Tuaj</p>
+<button onclick="openDashboard()">Hap Dashboard</button>
+<div class="features">
+
+
+</div>
+</div>
+</div>
+
+<script>
+function openDashboard(){window.location.href="dashboard.html";}
+</script>
+
+</body>
+</html>

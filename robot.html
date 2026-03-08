@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgriSense Guardian - Rreth Nesh</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    .logo-title{
+width:60px;
+vertical-align:middle;
+margin-right:6px;
+}
+
+body{margin:0;
+    font-family:'Outfit',sans-serif;
+    color:white;
+    background:url('priscilla-du-preez-6gWMviz-vSo-unsplash.jpg') no-repeat center center/cover;}
+
+
+.overlay{background:rgba(0,0,0,0.3);
+    min-height:100vh;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;}
+
+
+header{width:100%;padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;}
+
+
+header h1{cursor:pointer;font-size:24px;}
+
+
+header h1:hover{color:#00c853;transform:scale(1.05);}
+
+
+nav a{color:white;text-decoration:none;margin-left:20px;font-weight:bold;cursor:pointer;}
+
+nav a:hover{color:#00c853;}
+
+section{max-width:900px;text-align:center;margin-top:50px;}
+
+h2{font-size:38px;margin-bottom:25px;}
+
+p{font-size:18px;line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="overlay">
+<header>
+<h1 onclick="goHome()">
+<img src="logo.png" class="logo-title"> AgriSense Guardian
+</h1>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+         <a href="index.html">Home</a>
+    </nav>
+</header>
+
+<section>
+    <h2>Rreth Robotit</h2>
+    <p>
+AgriSense Guardian është një robot inteligjent i krijuar për të ndihmuar fermerët në monitorimin dhe menaxhimin më efikas të kushteve të fermës. Ai përdor sensorë të avancuar për të matur dhe analizuar në mënyrë të vazhdueshme disa nga parametrat më të rëndësishëm mjedisorë, si temperatura, lagështia e ajrit dhe e tokës, niveli i pH-së, përqendrimi i CO₂ në ajër, si edhe për të identifikuar nëse bimët mund të jenë të prekura nga sëmundje të ndryshme.
+</p>
+
+<p>
+Të gjitha këto të dhëna mblidhen dhe përpunohen në kohë reale, duke i dhënë fermerit një pamje të qartë të gjendjes së kulturave të tij. Një nga veçoritë më të rëndësishme të AgriSense Guardian është se informacioni i mbledhur dërgohet drejtpërdrejt në telefonin e fermerit përmes një sistemi monitorimi.
+</p>
+
+<p>
+Në këtë mënyrë, fermeri mund të marrë njoftime të menjëhershme nëse ndonjë nga parametrat del jashtë vlerave normale, si për shembull temperatura shumë e lartë, një nivel jo i përshtatshëm i pH-së ose prania e mundshme e një sëmundjeje te bimët. Kjo i lejon atij të reagojë shpejt dhe të marrë vendime të informuara për ujitjen, ventilimin, përdorimin e plehrave apo trajtimin e bimëve.
+</p>
+
+<p>
+Qëllimi kryesor i këtij roboti është të përmirësojë mënyrën se si menaxhohen fermat moderne, duke përdorur teknologjinë për të rritur produktivitetin dhe për të ulur humbjet që shkaktohen nga faktorët mjedisorë. Në këtë mënyrë, AgriSense Guardian ndihmon fermerët të kursejnë kohë, të përdorin më mirë burimet dhe të sigurojnë një prodhim më të shëndetshëm dhe më të qëndrueshëm.
+</p>
+</section>
+</div>
+<script>
+function goHome(){window.location.href='index.html';}
+</script>
+</body>
+</html>

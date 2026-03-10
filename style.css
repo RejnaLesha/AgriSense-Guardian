@@ -193,57 +193,73 @@ nav a {
   white-space: nowrap;
 }
 
-/* --- THE MOBILE FIX (Universal for all mobile devices) --- */
-@media (max-width: 480px) {
-    .navbar {
-        padding: 10px 8px; /* Redukton hapësirën anësore */
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: nowrap; /* Ndalon thyerjen në dy rreshta */
+/* --- MOBILE RESPONSIVE FIX --- */
+
+@media (max-width: 768px) {
+
+    .navbar{
+        padding:12px 15px;
+        flex-wrap:wrap;
     }
 
-    .logo-container {
-        gap: 5px; /* Ngushton hapësirën mes logos dhe tekstit */
-        flex-shrink: 0;
+    .logo-container{
+        gap:6px;
     }
 
-    .logo {
-        width: 25px; /* Logo më e vogël për mobile */
+    .logo{
+        width:32px;
     }
 
-    .brand-main {
-        /* clamp(min, preferred, max) - madhësia rritet/zvogëlohet automatikisht */
-        font-size: clamp(12px, 4vw, 16px); 
-        letter-spacing: -0.3px;
-        white-space: nowrap;
+    .brand-main{
+        font-size:clamp(14px,4vw,18px);
+        letter-spacing:-0.5px;
     }
 
-    .brand-sub {
-        font-size: clamp(7px, 2vw, 9px);
-        letter-spacing: 0;
+    .brand-sub{
+        font-size:clamp(9px,2.5vw,11px);
     }
 
-    nav {
-        display: flex;
-        gap: 8px; /* Hapësirë e barabartë mes linqeve */
+    nav{
+        display:flex;
+        gap:10px;
     }
 
-    nav a {
-        margin-left: 0; /* Heqim margin-left që mos të shtyjë menunë jashtë */
-        font-size: clamp(10px, 3vw, 13px);
-        white-space: nowrap;
+    nav a{
+        margin-left:0;
+        font-size:clamp(11px,3vw,14px);
     }
+
 }
 
-/* Fix shtesë për ekranet ekstremisht të vegjël (nën 340px) */
-@media (max-width: 340px) {
-    .brand-main {
-        font-size: 11px;
+
+/* --- EXTRA SMALL PHONES --- */
+
+@media (max-width: 480px){
+
+    .navbar{
+        padding:10px;
     }
-    nav a {
-        font-size: 9px;
+
+    .logo{
+        width:28px;
     }
+
+    .brand-main{
+        font-size:4.2vw;
+    }
+
+    .brand-sub{
+        font-size:2.2vw;
+    }
+
+    nav{
+        gap:6px;
+    }
+
+    nav a{
+        font-size:3.2vw;
+    }
+
 }
 
 /* Rest of your styles */

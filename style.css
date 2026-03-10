@@ -193,25 +193,56 @@ nav a {
   white-space: nowrap;
 }
 
-/* --- THE MOBILE FIX --- */
+/* --- THE MOBILE FIX (Universal for all mobile devices) --- */
 @media (max-width: 480px) {
+    .navbar {
+        padding: 10px 8px; /* Redukton hapësirën anësore */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap; /* Ndalon thyerjen në dy rreshta */
+    }
+
+    .logo-container {
+        gap: 5px; /* Ngushton hapësirën mes logos dhe tekstit */
+        flex-shrink: 0;
+    }
+
     .logo {
-        width: 30px; /* Smaller icon */
+        width: 25px; /* Logo më e vogël për mobile */
     }
 
     .brand-main {
-        /* Use 'vw' (Viewport Width) so font scales with the screen size */
-        font-size: 4.5vw; 
-        letter-spacing: -0.5px; /* Tighten characters */
+        /* clamp(min, preferred, max) - madhësia rritet/zvogëlohet automatikisht */
+        font-size: clamp(12px, 4vw, 16px); 
+        letter-spacing: -0.3px;
+        white-space: nowrap;
     }
 
     .brand-sub {
-        font-size: 2.2vw;
+        font-size: clamp(7px, 2vw, 9px);
+        letter-spacing: 0;
+    }
+
+    nav {
+        display: flex;
+        gap: 8px; /* Hapësirë e barabartë mes linqeve */
     }
 
     nav a {
-        margin-left: 8px;
-        font-size: 3.2vw; /* Nav links also scale down */
+        margin-left: 0; /* Heqim margin-left që mos të shtyjë menunë jashtë */
+        font-size: clamp(10px, 3vw, 13px);
+        white-space: nowrap;
+    }
+}
+
+/* Fix shtesë për ekranet ekstremisht të vegjël (nën 340px) */
+@media (max-width: 340px) {
+    .brand-main {
+        font-size: 11px;
+    }
+    nav a {
+        font-size: 9px;
     }
 }
 

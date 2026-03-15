@@ -5,156 +5,301 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AgriSense Guardian - Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif;}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Outfit',sans-serif;
+}
+
 .logo-title{
 width:60px;
 vertical-align:middle;
 margin-right:6px;
 }
 
-body{background:url('priscilla-du-preez-6gWMviz-vSo-unsplash.jpg') no-repeat center center/cover;
-color:white;}
+body{
+background:url('priscilla-du-preez-6gWMviz-vSo-unsplash.jpg') no-repeat center center/cover;
+color:white;
+}
 
+.overlay{
+background:rgba(0,0,0,0.3);
+min-height:100vh;
+}
 
-.overlay{background:rgba(0,0,0,0.3);
-    min-height:100vh;}
+/* HEADER */
 
-header{padding:20px 60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;}
+header{
+padding:20px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:relative;
+}
 
+header h2{
+font-size:20px;
+cursor:pointer;
+transition:0.3s;
+}
 
-header h2{font-size:20px;
-    cursor:pointer;
-    transition:0.3s;}
+header h2:hover{
+color:#00c853;
+transform:scale(1.05);
+}
 
+/* HAMBURGER MENU */
 
-header h1:hover{color:#00c853;
-    transform:scale(1.05);}
+.menu-icon{
+font-size:30px;
+cursor:pointer;
+}
 
-nav a{color:white;
-    text-decoration:none;
-    margin-left:25px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.3s;}
+#navMenu{
+position:absolute;
+top:70px;
+right:40px;
+background:rgba(0,0,0,0.9);
+border-radius:10px;
+padding:20px;
+display:none;
+flex-direction:column;
+min-width:160px;
+}
 
-nav a:hover{color:#00c853;
-    transform:scale(1.05);}
+#navMenu a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+padding:10px 0;
+transition:0.3s;
+}
 
-.hero{text-align:center;
-    padding:60px 20px;}
+#navMenu a:hover{
+color:#00c853;
+}
 
-.hero h2{font-size:42px;
-    margin-bottom:20px;}
+/* HERO */
 
-.hero p{font-size:18px;}
+.hero{
+text-align:center;
+padding:60px 20px;
+}
 
-.dashboard{display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    padding:40px;
-    transition:all 0.3s;}
+.hero h2{
+font-size:42px;
+margin-bottom:20px;
+}
 
-.card{background:#2e7d32;
-    margin:15px;padding:25px;
-    width:220px;
-    border-radius:12px;
-    text-align:center;
-    font-size:18px;
-    transition:0.3s;
-    cursor:pointer;
-    box-shadow:0 4px 10px rgba(0,0,0,0.5);}
+.hero p{
+font-size:18px;
+}
 
+/* DASHBOARD */
 
-.card:hover{transform:scale(1.05);
-    background:#1b5e20;
-    box-shadow:0 6px 14px rgba(0,0,0,0.7);}
+.dashboard{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+padding:40px;
+transition:all 0.3s;
+}
 
-.alert{background:#c62828;
-    animation:shake 0.5s;}
+.card{
+background:#2e7d32;
+margin:15px;
+padding:25px;
+width:220px;
+border-radius:12px;
+text-align:center;
+font-size:18px;
+transition:0.3s;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,0.5);
+}
 
-@keyframes shake{0%{transform:translateX(0);}
+.card:hover{
+transform:scale(1.05);
+background:#1b5e20;
+box-shadow:0 6px 14px rgba(0,0,0,0.7);
+}
+
+/* ALERT */
+
+.alert{
+background:#c62828;
+animation:shake 0.5s;
+}
+
+@keyframes shake{
+0%{transform:translateX(0);}
 25%{transform:translateX(-5px);}
 50%{transform:translateX(5px);}
 75%{transform:translateX(-5px);}
-100%{transform:translateX(0);}}
+100%{transform:translateX(0);}
+}
 
-.footer{text-align:center;
-    padding:20px;
-    background:rgba(0,0,0,0.7);}
+/* BUTTON */
 
+button.simulate{
+padding:14px 30px;
+font-size:16px;
+border:none;
+border-radius:8px;
+background:#00c853;
+color:white;
+cursor:pointer;
+transition:0.3s;
+margin:20px;
+}
 
-button.simulate{padding:14px 30px;
-    font-size:16px;
-    border:none;
-    border-radius:8px;
-    background:#00c853;
-    color:white;
-    cursor:pointer;
-    transition:0.3s;
-    margin:20px;}
+button.simulate:hover{
+background:#009624;
+transform:scale(1.05);
+}
 
-button.simulate:hover{background:#009624;
-transform:scale(1.05);}
+/* FOOTER */
+
+.footer{
+text-align:center;
+padding:20px;
+background:rgba(0,0,0,0.7);
+}
 
 </style>
 </head>
+
 <body>
+
 <div class="overlay">
+
 <header>
-   <h2 onclick="goHome()">
+
+<h2 onclick="goHome()">
 <img src="logo.png" class="logo-title"> AgriSense Guardian
 </h2>
-    <nav>
-        <a href="robot.html">Rreth Nesh</a>
-        <a href="index.html">Home</a>
-    </nav>
+
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+<nav id="navMenu">
+<a href="index.html">Home</a>
+<a href="robot.html">Rreth Nesh</a>
+</nav>
+
 </header>
 
 <section class="hero">
-    <h2>Dashboard Inteligjent</h2>
-    <p>Temperatura • Lagështia • pH • CO2 • Sëmundjet e bimëve</p>
+<h2>Dashboard Inteligjent</h2>
+<p>Temperatura • Lagështia • pH • CO2 • Sëmundjet e bimëve</p>
 </section>
 
 <section class="dashboard">
-    <div class="card" id="tempCard">🌡 Temperatura: <span id="temp">--</span> °C</div>
-    <div class="card" id="humidityCard">💧 Lagështia: <span id="humidity">--</span> %</div>
-    <div class="card" id="phCard">🧪 pH: <span id="ph">--</span></div>
-    <div class="card" id="co2Card">🌿 CO2: <span id="co2">--</span> ppm</div>
-    <div class="card" id="diseaseCard">🦠 Sëmundje: <span id="disease">--</span></div>
+
+<div class="card" id="tempCard">
+🌡 Temperatura: <span id="temp">--</span> °C
+</div>
+
+<div class="card" id="humidityCard">
+💧 Lagështia: <span id="humidity">--</span> %
+</div>
+
+<div class="card" id="phCard">
+🧪 pH: <span id="ph">--</span>
+</div>
+
+<div class="card" id="co2Card">
+🌿 CO2: <span id="co2">--</span> ppm
+</div>
+
+<div class="card" id="diseaseCard">
+🦠 Sëmundje: <span id="disease">--</span>
+</div>
+
 </section>
 
 <section style="text-align:center;">
-    <button class="simulate" onclick="simulateData()">Simulo të Dhëna nga Roboti</button>
+<button class="simulate" onclick="simulateData()">
+Simulo të Dhëna nga Roboti
+</button>
 </section>
 
 <div class="footer">©️ 2026 AgriSense Guardian</div>
+
 </div>
 
 <script>
-function goHome(){window.location.href='index.html';}
-function simulateData(){
-    let temperature=Math.floor(Math.random()*45);
-    let humidity=Math.floor(Math.random()*100);
-    let ph=(Math.random()*3+5).toFixed(1);
-    let co2=Math.floor(Math.random()*1500);
-    let disease=Math.random()>0.7;
-    document.getElementById("temp").innerText=temperature;
-    document.getElementById("humidity").innerText=humidity;
-    document.getElementById("ph").innerText=ph;
-    document.getElementById("co2").innerText=co2;
-    document.getElementById("disease").innerText=disease?"Po":"Jo";
-    resetCards();
-    if(temperature>35){alertTelegram("⚠ Temperatura shumë e lartë!");document.getElementById("tempCard").classList.add("alert");}
-    if(ph<5.5||ph>7.5){alertTelegram("⚠ pH jashtë normales!");document.getElementById("phCard").classList.add("alert");}
-    if(co2>1000){alertTelegram("⚠ Nivel i lartë CO2!");document.getElementById("co2Card").classList.add("alert");}
-    if(disease){alertTelegram("🚨 Sëmundje e zbuluar në bimë!");document.getElementById("diseaseCard").classList.add("alert");}
+
+function goHome(){
+window.location.href='index.html';
 }
-function resetCards(){let cards=document.querySelectorAll(".card");cards.forEach(c=>c.classList.remove("alert"));}
-function alertTelegram(message){console.log("Telegram Alert:",message);alert("Telegram Alert:\n"+message);}
+
+/* HAMBURGER MENU */
+
+function toggleMenu(){
+let menu=document.getElementById("navMenu");
+
+if(menu.style.display==="flex"){
+menu.style.display="none";
+}else{
+menu.style.display="flex";
+}
+}
+
+/* SENSOR SIMULATION */
+
+function simulateData(){
+
+let temperature=Math.floor(Math.random()*45);
+let humidity=Math.floor(Math.random()*100);
+let ph=(Math.random()*3+5).toFixed(1);
+let co2=Math.floor(Math.random()*1500);
+let disease=Math.random()>0.7;
+
+document.getElementById("temp").innerText=temperature;
+document.getElementById("humidity").innerText=humidity;
+document.getElementById("ph").innerText=ph;
+document.getElementById("co2").innerText=co2;
+document.getElementById("disease").innerText=disease?"Po":"Jo";
+
+resetCards();
+
+if(temperature>35){
+alertTelegram("⚠ Temperatura shumë e lartë!");
+document.getElementById("tempCard").classList.add("alert");
+}
+
+if(ph<5.5||ph>7.5){
+alertTelegram("⚠ pH jashtë normales!");
+document.getElementById("phCard").classList.add("alert");
+}
+
+if(co2>1000){
+alertTelegram("⚠ Nivel i lartë CO2!");
+document.getElementById("co2Card").classList.add("alert");
+}
+
+if(disease){
+alertTelegram("🚨 Sëmundje e zbuluar në bimë!");
+document.getElementById("diseaseCard").classList.add("alert");
+}
+
+}
+
+function resetCards(){
+let cards=document.querySelectorAll(".card");
+cards.forEach(c=>c.classList.remove("alert"));
+}
+
+function alertTelegram(message){
+console.log("Telegram Alert:",message);
+alert("Telegram Alert:\n"+message);
+}
+
 </script>
+
 </body>
 </html>

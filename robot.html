@@ -7,64 +7,126 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-    .logo-title{
+
+.logo-title{
 width:100px;
 vertical-align:middle;
 margin-right:4px;
 }
 
-body{margin:0;
-    font-family:'Outfit',sans-serif;
-    color:white;
-    background:url('priscilla-du-preez-6gWMviz-vSo-unsplash.jpg') no-repeat center center/cover;}
+body{
+margin:0;
+font-family:'Outfit',sans-serif;
+color:white;
+background:url('priscilla-du-preez-6gWMviz-vSo-unsplash.jpg') no-repeat center center/cover;
+}
 
+.overlay{
+background:rgba(0,0,0,0.3);
+min-height:100vh;
+padding:20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
 
-.overlay{background:rgba(0,0,0,0.3);
-    min-height:100vh;
-    padding:20px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;}
+/* HEADER */
 
+header{
+width:100%;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:relative;
+}
 
-header{width:100%;padding:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;}
+header h1{
+cursor:pointer;
+font-size:24px;
+}
 
+header h1:hover{
+color:#00c853;
+transform:scale(1.05);
+}
 
-header h1{cursor:pointer;font-size:24px;}
+/* HAMBURGER MENU */
 
+.menu-icon{
+font-size:30px;
+cursor:pointer;
+}
 
-header h1:hover{color:#00c853;transform:scale(1.05);}
+#navMenu{
+position:absolute;
+top:70px;
+right:20px;
+background:rgba(0,0,0,0.9);
+border-radius:10px;
+padding:20px;
+display:none;
+flex-direction:column;
+min-width:160px;
+}
 
+#navMenu a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+padding:10px 0;
+transition:0.3s;
+}
 
-nav a{color:white;text-decoration:none;margin-left:20px;font-weight:bold;cursor:pointer;}
+#navMenu a:hover{
+color:#00c853;
+}
 
-nav a:hover{color:#00c853;}
+/* CONTENT */
 
-section{max-width:900px;text-align:center;margin-top:50px;}
+section{
+max-width:900px;
+text-align:center;
+margin-top:50px;
+}
 
-h2{font-size:38px;margin-bottom:25px;}
+h2{
+font-size:38px;
+margin-bottom:25px;
+}
 
-p{font-size:18px;line-height:1.7;}
+p{
+font-size:18px;
+line-height:1.7;
+}
+
 </style>
 </head>
+
 <body>
+
 <div class="overlay">
+
 <header>
+
 <h1 onclick="goHome()">
 <img src="logo.png" class="logo-title"> AgriSense Guardian
 </h1>
-    <nav>
-        <a href="dashboard.html">Dashboard</a>
-         <a href="index.html">Home</a>
-    </nav>
+
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+<nav id="navMenu">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+</nav>
+
 </header>
 
 <section>
-    <h2>Rreth Robotit</h2>
-    <p>
+
+<h2>Rreth Robotit</h2>
+
+<p>
 AgriSense Guardian është një robot inteligjent i krijuar për të ndihmuar fermerët në monitorimin dhe menaxhimin më efikas të kushteve të fermës. Ai përdor sensorë të avancuar për të matur dhe analizuar në mënyrë të vazhdueshme disa nga parametrat më të rëndësishëm mjedisorë, si temperatura, lagështia e ajrit dhe e tokës, niveli i pH-së, përqendrimi i CO₂ në ajër, si edhe për të identifikuar nëse bimët mund të jenë të prekura nga sëmundje të ndryshme.
 </p>
 
@@ -79,10 +141,32 @@ Në këtë mënyrë, fermeri mund të marrë njoftime të menjëhershme nëse nd
 <p>
 Qëllimi kryesor i këtij roboti është të përmirësojë mënyrën se si menaxhohen fermat moderne, duke përdorur teknologjinë për të rritur produktivitetin dhe për të ulur humbjet që shkaktohen nga faktorët mjedisorë. Në këtë mënyrë, AgriSense Guardian ndihmon fermerët të kursejnë kohë, të përdorin më mirë burimet dhe të sigurojnë një prodhim më të shëndetshëm dhe më të qëndrueshëm.
 </p>
+
 </section>
+
 </div>
+
 <script>
-function goHome(){window.location.href='index.html';}
+
+function goHome(){
+window.location.href='index.html';
+}
+
+/* HAMBURGER MENU */
+
+function toggleMenu(){
+
+let menu=document.getElementById("navMenu");
+
+if(menu.style.display==="flex"){
+menu.style.display="none";
+}else{
+menu.style.display="flex";
+}
+
+}
+
 </script>
+
 </body>
 </html>
